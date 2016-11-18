@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" x-frame-options="sameorigin">
+<head>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<meta http-equiv="Expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="資料圖形化呈現一直都是人們最容易接收的方式, 坊間更是有很多繪圖用 libraries 供 front end engineer 做些有趣的圖表應用, 不過不是每位 developer 都可以快速入手. 為了讓 developer 可以快速的將圖表於 web page 中呈現, 筆者便開發了 lineCharts 這個 web components, 透過簡單的 HTML tag 設定, 便可以輕輕鬆鬆完成基本的 line chart.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@mei">
+<meta name="twitter:creator" content="@mei">
+<meta name="twitter:title" content="line chart - web components based Chart Application">
+<meta name="twitter:description" content="資料圖形化呈現一直都是人們最容易接收的方式, 坊間更是有很多繪圖用 libraries 供 front end engineer 做些有趣的圖表應用, 不過不是每位 developer 都可以快速入手. 為了讓 developer 可以快速的將圖表於 web page 中呈現, 筆者便開發了 lineCharts 這個 web components, 透過簡單的 HTML tag 設定, 便可以輕輕鬆鬆完成基本的 line chart.">
+<meta name="twitter:image:src" content="http://mei.homin.com.tw/img/preview/lineCharts.png">
+<meta property="og:title" content="line chart - web components based Chart Application">
+<meta property="og:site_name" content="mei">
+<meta property="og:description" content="資料圖形化呈現一直都是人們最容易接收的方式, 坊間更是有很多繪圖用 libraries 供 front end engineer 做些有趣的圖表應用, 不過不是每位 developer 都可以快速入手. 為了讓 developer 可以快速的將圖表於 web page 中呈現, 筆者便開發了 lineCharts 這個 web components, 透過簡單的 HTML tag 設定, 便可以輕輕鬆鬆完成基本的 line chart.">
+<meta property="og:image" content="http://mei.homin.com.tw/img/preview/lineCharts.png">
+<title>line chart - web components based Chart Application</title>
+<link rel="dns-prefetch" href="//mei.homin.com.tw">
+<link rel="canonical" href="http://mei.homin.com.tw/lineChartPrototype.html">
+<link rel="stylesheet" href="css/cssbase.css">
+<link rel="stylesheet" href="css/adornFormElements.css">
+<link rel="stylesheet" href="css/line-chart.css">
+<script src="js/pageRender.js" data-source="js/gaExt.js&js/pack-line-charts.js&js/lineChartsInit.js"></script>
+</head>
+
+<body>
+<header id="hd" role="banner">
+	<h1>line chart - web components based Chart Application</h1>
+</header>
+
+<main id="bd" role="main">
+	<section>
+		<div class="stage">
+			<form>
+				<label class="mei-b select-wrap">
+					<p>select</p>
+					<select disabled>
+						<option disabled>Pick lineCharts type</option>
+						<option value="type0" selected>Line chart (basic)</option>
+						<option value="type1">Line chart with 2 axis-Y</option>
+						<option value="type2">Stacked area chart</option>
+						<option value="type3">Stacked area chart & line chart</option>
+					</select>
+					<em>arrow</em>
+				</label>
+			</form>
+			<div class="wraps">
+				<div class="line-charts-wrap">
+					<line-charts hidden data-conf='{&quot;axisX&quot;:{&quot;ticks&quot;:15,&quot;labels&quot;:[{&quot;abbr&quot;:&quot;Sep 27&quot;,&quot;full&quot;:&quot;SEP 27, 2016&quot;},{&quot;abbr&quot;:&quot;Sep 28&quot;,&quot;full&quot;:&quot;SEP 28, 2016&quot;},{&quot;abbr&quot;:&quot;Sep 29&quot;,&quot;full&quot;:&quot;SEP 29, 2016&quot;},{&quot;abbr&quot;:&quot;Sep 30&quot;,&quot;full&quot;:&quot;SEP 30, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 1&quot;,&quot;full&quot;:&quot;OCT 1, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 2&quot;,&quot;full&quot;:&quot;OCT 2, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 3&quot;,&quot;full&quot;:&quot;OCT 3, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 4&quot;,&quot;full&quot;:&quot;OCT 4, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 5&quot;,&quot;full&quot;:&quot;OCT 5, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 6&quot;,&quot;full&quot;:&quot;OCT 6, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 7&quot;,&quot;full&quot;:&quot;OCT 7, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 8&quot;,&quot;full&quot;:&quot;OCT 8, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 9&quot;,&quot;full&quot;:&quot;OCT 9, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 10&quot;,&quot;full&quot;:&quot;OCT 10, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 11&quot;,&quot;full&quot;:&quot;OCT 11, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 12&quot;,&quot;full&quot;:&quot;OCT 12, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 13&quot;,&quot;full&quot;:&quot;OCT 13, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 14&quot;,&quot;full&quot;:&quot;OCT 14, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 15&quot;,&quot;full&quot;:&quot;OCT 15, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 16&quot;,&quot;full&quot;:&quot;OCT 16, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 17&quot;,&quot;full&quot;:&quot;OCT 17, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 18&quot;,&quot;full&quot;:&quot;OCT 18, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 19&quot;,&quot;full&quot;:&quot;OCT 19, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 20&quot;,&quot;full&quot;:&quot;OCT 20, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 21&quot;,&quot;full&quot;:&quot;OCT 21, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 22&quot;,&quot;full&quot;:&quot;OCT 22, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 23&quot;,&quot;full&quot;:&quot;OCT 23, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 24&quot;,&quot;full&quot;:&quot;OCT 24, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 25&quot;,&quot;full&quot;:&quot;OCT 25, 2016&quot;},{&quot;abbr&quot;:&quot;Oct 26&quot;,&quot;full&quot;:&quot;OCT 26, 2016&quot;}]},&quot;axisY&quot;:{&quot;ticks&quot;:4,&quot;data&quot;:[{&quot;enableFloat&quot;:false,&quot;isStackedAreaChart&quot;:false,&quot;lines&quot;:[{&quot;id&quot;:&quot;model0&quot;,&quot;title&quot;:&quot;iPhone 7&quot;,&quot;points&quot;:[&quot;134479&quot;,&quot;141197&quot;,&quot;133593&quot;,&quot;134186&quot;,&quot;132849&quot;,&quot;137785&quot;,&quot;136751&quot;,&quot;139237&quot;,&quot;135863&quot;,&quot;117262&quot;,&quot;144050&quot;,&quot;120397&quot;,&quot;140816&quot;,&quot;155009&quot;,&quot;126741&quot;,&quot;140649&quot;,&quot;136550&quot;,&quot;136934&quot;,&quot;137838&quot;,&quot;136076&quot;,&quot;141142&quot;,&quot;118584&quot;,&quot;142639&quot;,&quot;137280&quot;,&quot;135727&quot;,&quot;136153&quot;,&quot;135147&quot;,&quot;135705&quot;,&quot;142600&quot;,&quot;123513&quot;],&quot;color&quot;:&quot;#2cbcff&quot;,&quot;opacity&quot;:1},{&quot;id&quot;:&quot;model1&quot;,&quot;title&quot;:&quot;iPhone 6&quot;,&quot;points&quot;:[&quot;84018&quot;,&quot;94706&quot;,&quot;90403&quot;,&quot;88965&quot;,&quot;88609&quot;,&quot;89373&quot;,&quot;91127&quot;,&quot;93079&quot;,&quot;90690&quot;,&quot;86917&quot;,&quot;92910&quot;,&quot;88983&quot;,&quot;92487&quot;,&quot;101995&quot;,&quot;94054&quot;,&quot;96374&quot;,&quot;92718&quot;,&quot;92487&quot;,&quot;92971&quot;,&quot;93974&quot;,&quot;95594&quot;,&quot;92912&quot;,&quot;94678&quot;,&quot;90694&quot;,&quot;87415&quot;,&quot;87855&quot;,&quot;93598&quot;,&quot;102990&quot;,&quot;98069&quot;,&quot;83312&quot;],&quot;color&quot;:&quot;#6a6acc&quot;,&quot;opacity&quot;:1}]}]}}'>
+						<h3>line charts</h3>
+					</line-charts>
+				</div>
+				<ul class="info mei-g">
+					<li class="mei-u"></li>
+					<li class="mei-u"></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</main>
+
+<footer id="ft">
+	<small role="contentinfo">Powered by mei's studio.</small>
+	<var id="gaConf" data-conf='{&quot;trackingID&quot;:&quot;UA-74300583-1&quot;,&quot;cookieDomain&quot;:&quot;none&quot;,&quot;sampleRate&quot;:&quot;100&quot;,&quot;markId&quot;:&quot;gaExtMark&quot;,&quot;signEsc&quot;:&quot;ga-esc&quot;,&quot;customDefinitions&quot;:{&quot;document_group&quot;:&quot;line chart prototype&quot;},&quot;cdMap&quot;:{&quot;document_group&quot;:&quot;contentGroup1&quot;}}' hidden>ga conf</var>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "CreativeWork",
+  "name": "line chart - web components based Chart Application",
+  "url": "http://mei.homin.com.tw/lineChartPrototype.html",
+  "description": "資料圖形化呈現一直都是人們最容易接收的方式, 坊間更是有很多繪圖用 libraries 供 front end engineer 做些有趣的圖表應用, 不過不是每位 developer 都可以快速入手. 為了讓 developer 可以快速的將圖表於 web page 中呈現, 筆者便開發了 lineCharts 這個 web components, 透過簡單的 HTML tag 設定, 便可以輕輕鬆鬆完成基本的 line chart.",
+  "image": "http://mei.homin.com.tw/img/preview/lineCharts.png",
+  "author": {
+	  "@type": "Person",
+	  "name": "Paul Li",
+	  "jobTitle": "Front End engineer",
+	  "affiliation": "mei's studio",
+	  "additionalName": "mei",
+	  "url": "https://www.facebook.com/mei.studio.li",
+	  "image": "https://graph.facebook.com/mei.studio.li/picture",
+	  "brand": "mei's studio",
+	  "familyName": "Li",
+	  "gender": "M",
+	  "givenName": "Paul",
+	  "owns": "mei's studio",
+	  "worksFor": "Yahoo",
+	  "description": "People who loves all front end skills"
+  },
+  "dateCreated": "2016-10-28",
+  "datePublished": "2016-10-28",
+  "genre": "web components",
+  "keywords": "lineCharts,webcomponents"
+}
+</script>
+</body>
+</html>
