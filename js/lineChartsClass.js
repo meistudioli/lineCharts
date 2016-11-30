@@ -710,7 +710,7 @@ lineCharts.prototype = {
 				d: e.queue.join(' '),
 				'stroke-width': 1,
 				'stroke-linecap': 'butt',
-				stroke: this.defColor.axisY,
+				stroke: this.defColor.axisY
 			}
 		));
 
@@ -783,7 +783,7 @@ lineCharts.prototype = {
 			{width:400, ticks:3},
 			{width:500, ticks:4},
 			{width:600, ticks:5},
-			{width:800, ticks:6},
+			{width:800, ticks:6}
 		];
 		e.range.some(
 			function(unit) {
@@ -1033,12 +1033,12 @@ lineCharts.prototype = {
 		}//end for
 	},
 	genCSV: function() {
-		var csv, content, column;
+		var csv, content, column, arr;
 
 		if (!this.Data.stand.length) return;
 
 		csv = [];
-		content = 'data:text/csv;charset=utf-8,';
+		content = '';
 		column = [];
 
 		//subject
@@ -1075,13 +1075,32 @@ lineCharts.prototype = {
 		csv.unshift(column);
 		this.Data.CSV = csv;
 
-		csv.forEach(
-			function(data, idx) {
-				content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join() + "\n";
-			}
-		);
-		if (this.Ens.export) this.Ens.export.href = encodeURI(content);
-		if (this.Ens.menu && this.Ens.menu['export-csv']) this.Ens.menu['export-csv'].href = encodeURI(content);
+		//convert
+		if (this.Ens.export || (this.Ens.menu && this.Ens.menu['export-csv'])) {
+			//detect OS
+			if (navigator.appVersion && /macintosh/i.test(navigator.appVersion)) {
+				csv.forEach(
+					function(data, idx) {
+						content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join("\t") + "\r\n";
+					}
+				);
+				content = '\ufffe' + content;
+				arr = [];
+				for (var i=-1,l=content.length;++i<l;) arr.push(content.charCodeAt(i));
+				content = new Uint16Array(array);
+				content = new Blob([content] , {type: 'text/csv;charset=utf-16;'});
+				content = this.URLObj.createObjectURL(content);
+			} else {
+				csv.forEach(
+					function(data, idx) {
+						content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join() + "\n";
+					}
+				);
+				content = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(content);
+			}//end if
+			if (this.Ens.export) this.Ens.export.href = content;
+			if (this.Ens.menu && this.Ens.menu['export-csv']) this.Ens.menu['export-csv'].href = content;
+		}//end if
 	},
 	doAnimate: function() {
 		var c, rect, max, ins;
