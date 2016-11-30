@@ -1033,7 +1033,7 @@ lineCharts.prototype = {
 		}//end for
 	},
 	genCSV: function() {
-		var csv, content, column, arr;
+		var csv, content, column;
 
 		if (!this.Data.stand.length) return;
 
@@ -1077,27 +1077,12 @@ lineCharts.prototype = {
 
 		//convert
 		if (this.Ens.export || (this.Ens.menu && this.Ens.menu['export-csv'])) {
-			//detect OS
-			if (navigator.appVersion && /macintosh/i.test(navigator.appVersion)) {
-				csv.forEach(
-					function(data, idx) {
-						content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join("\t") + "\r\n";
-					}
-				);
-				content = '\ufffe' + content;
-				arr = [];
-				for (var i=-1,l=content.length;++i<l;) arr.push(content.charCodeAt(i));
-				content = new Uint16Array(array);
-				content = new Blob([content] , {type: 'text/csv;charset=utf-16;'});
-				content = this.URLObj.createObjectURL(content);
-			} else {
-				csv.forEach(
-					function(data, idx) {
-						content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join() + "\n";
-					}
-				);
-				content = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(content);
-			}//end if
+			csv.forEach(
+				function(data, idx) {
+					content += data.map(function(unit){return unit.toString().replace(/,/g, ' ');}).join() + "\n";
+				}
+			);
+			content = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURI(content);
 			if (this.Ens.export) this.Ens.export.href = content;
 			if (this.Ens.menu && this.Ens.menu['export-csv']) this.Ens.menu['export-csv'].href = content;
 		}//end if
